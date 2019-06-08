@@ -1,0 +1,9 @@
+{
+    "apps": [{
+        "name": "git.oxro.io",
+        "script": "./app.js",
+        "instances": "max",
+        "exec_mode": "cluster",
+        "watch": true
+    }]
+}
