@@ -1,0 +1,22 @@
+{
+  "name": "update",
+  "version": "1.0.0",
+  "description": "Auto-update a git repo you store locally on push. ",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eddiejibson/update.git"
+  },
+  "author": "Edward Jibson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eddiejibson/update/issues"
+  },
+  "homepage": "https://github.com/eddiejibson/update#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
