@@ -2,6 +2,8 @@
 
 Auto-update your GitHub repository and execute tasks/commands on push.
 
+If this helps you out, please consider giving us a 🌟. It makes our night sky better. Thanks.
+
 ## Installation
 
 Clone the repository:
