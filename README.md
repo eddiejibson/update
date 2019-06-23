@@ -52,7 +52,7 @@ All configuration should be done in a `config.json` file. Here's an example:
 
 ## Configuring web server
 
-Example NGINX configuration (reverse proxy):
+Example NGINX configuration (reverse proxy) with SSL. You can get a free SSL certificate for your domain/subdomain from [Let's Encrypt](https://letsencrypt.org/getting-started/).
 
 ```
 server {
