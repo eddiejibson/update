@@ -34,7 +34,7 @@ pm2 start processes.json
 
 All configuration should be done in a `config.json` file. Here's an example:
 
-```json
+```javascript
 {
     "port": "8090", //Port of the server to listen onto. Defaults to 8090
     "repos": {
