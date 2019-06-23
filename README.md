@@ -2,7 +2,7 @@
 
 Auto-update your GitHub repository and execute tasks/commands on push.
 
-If this helps you out, please consider giving us a 🌟. It makes our night sky better. Thanks.
+If this helps you out, please consider giving the repository a star. It makes our night sky better. Thanks.
 
 ## Installation
 
