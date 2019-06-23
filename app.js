@@ -5,6 +5,8 @@ const express = require("express"),
     app = express(),
     config = require("./config.json");
 
+process.send = process.send || function () {};
+
 app.use(bodyParser.json());
 
 app.post("/", (req, res) => {
