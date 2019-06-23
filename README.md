@@ -18,7 +18,7 @@ Enter into repository's directory and and install the dependencies:
 cd update/ && npm install
 ```
 
-You'll now [need to configure](#configuration) the platform, [setup your webserver](#configuring-web-server) and [add the webhook](#adding-a-webhook-to-a-repository) you continue.
+You'll now [need to configure](#configuration) the platform, [setup your webserver](#configuring-web-server) and [add the webhook](#adding-a-webhook-to-a-repository) before you continue.
 
 Starting:
 
@@ -26,9 +26,10 @@ Starting:
 node app.js
 ```
 
-Alternatively, you may start it as a process, with PM2:
+Alternatively, you may start it as a process, with PM2 (recommended):
 
 ```bash
+npm install pm2 -g
 pm2 start processes.json
 ```
 
