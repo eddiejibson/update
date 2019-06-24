@@ -2,6 +2,8 @@
 
 Auto-update your GitHub repository and execute tasks/commands on push.
 
+If this helps you out, please consider giving the repository a star. It makes our night sky better. Thanks.
+
 ## Installation
 
 Clone the repository:
@@ -16,7 +18,7 @@ Enter into repository's directory and and install the dependencies:
 cd update/ && npm install
 ```
 
-You'll now [need to configure](#configuration) the platform, [setup your webserver](#configuring-web-server) and [add the webhook](#adding-a-webhook-to-a-repository) you continue.
+You'll now [need to configure](#configuration) the platform, [setup your webserver](#configuring-web-server) and [add the webhook](#adding-a-webhook-to-a-repository) before you continue.
 
 Starting:
 
@@ -24,9 +26,10 @@ Starting:
 node app.js
 ```
 
-Alternatively, you may start it as a process, with PM2:
+Alternatively, you may start it as a process, with PM2 (recommended):
 
 ```bash
+npm install pm2 -g
 pm2 start processes.json
 ```
 
@@ -57,7 +60,7 @@ All configuration should be done in a `config.json` file. Here's an example:
 
 ## Configuring web server
 
-Example NGINX configuration (reverse proxy):
+Example NGINX configuration (reverse proxy) with SSL. You can get a free SSL certificate for your domain/subdomain from [Let's Encrypt](https://letsencrypt.org/getting-started/).
 
 ```
 server {
