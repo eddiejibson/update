@@ -40,6 +40,11 @@ app.post("/", (req, res) => {
                 console.log("Updating repo", repoName, "\n", stdout, "\n");
                 for (let i = 0; i < configForRepo.cmds.length; i++) {
                     let cmd = configForRepo.cmds[i];
+                    if (typeof cmd === "object") {
+                        if (cmd.background) {
+                            cmd = cmd.cmd + " &>/dev/null &disown";
+                        }
+                    }
                     exec(cmd, {
                         cwd: configForRepo.path
                     }, (error, stdout) => {

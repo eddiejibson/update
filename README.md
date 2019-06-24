@@ -43,7 +43,12 @@ All configuration should be done in a `config.json` file. Here's an example:
             //the webhook is indeed from Github and not an attacker
             "path": "/opt/testupdate", //The root path of the repository stored on your local system
             "cmds": [ //Optional. An array of commands you want executed after pull
-                "npm install"
+                "npm install",
+                 { //Instead of a string with the command, you can also specify extra options
+                     "background": true, //This command will be ran in the background (not slowing down the request)
+                     //This is reccomended for intensive commands that may take some time.
+                     "cmd": "npm run build"
+                 }
             ]
         }
     }
