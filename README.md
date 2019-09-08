@@ -6,6 +6,11 @@ If this helps you out, please consider giving the repository a star. It makes ou
 
 ## Installation
 
+You're going to need the `screen` package if you plan to execute background tasks. If not, you'll be fine without it:
+```bash
+apt-get install screen -y
+```
+
 Clone the repository:
 
 ```bash
