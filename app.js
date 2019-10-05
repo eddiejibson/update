@@ -11,7 +11,11 @@ app.use(bodyParser.json());
 
 app.post("/", (req, res) => {
   console.log(req.body, req.get("X-Gitlab-Token") || "none");
-  if (!req.body || !req.body.repository || !req.body.repository.full_name) {
+  if (
+    !req.body ||
+    ((!req.body.project || !req.body.project.path_with_namespace) &&
+      (!req.body.repository || !req.body.repository.full_name))
+  ) {
     return res.status(422).json({
       error:
         "Ut oh, we haven't been given a valid payload to process this 'commit'."
@@ -58,26 +62,28 @@ app.post("/", (req, res) => {
           });
         } else {
           console.log("Updating repo", repoName, "\n", stdout, "\n");
-          for (let i = 0; i < configForRepo.cmds.length; i++) {
-            let cmd = configForRepo.cmds[i];
-            if (typeof cmd === "object") {
-              if (cmd.background) {
-                cmd = "screen -d -m " + cmd.cmd;
-              }
-            }
-            exec(
-              cmd,
-              {
-                cwd: configForRepo.path
-              },
-              (error, stdout) => {
-                if (error) {
-                  console.error(error);
-                } else {
-                  console.log(stdout);
+          if (configForRepo.cmds && Array.isArray(configForRepo.cmds)) {
+            for (let i = 0; i < configForRepo.cmds.length; i++) {
+              let cmd = configForRepo.cmds[i];
+              if (typeof cmd === "object") {
+                if (cmd.background) {
+                  cmd = "screen -d -m " + cmd.cmd;
                 }
               }
-            );
+              exec(
+                cmd,
+                {
+                  cwd: configForRepo.path
+                },
+                (error, stdout) => {
+                  if (error) {
+                    console.error(error);
+                  } else {
+                    console.log(stdout);
+                  }
+                }
+              );
+            }
           }
         }
       }
