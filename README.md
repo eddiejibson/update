@@ -1,6 +1,6 @@
 # Update
 
-Auto-update your GitHub repository and execute tasks/commands on push.
+Auto-update your GitHub or GitLab repository and execute tasks/commands on push.
 
 If this helps you out, please consider giving the repository a star. It makes our night sky better. Thanks.
 
@@ -48,6 +48,7 @@ All configuration should be done in a `config.json` file. Here's an example:
     "repos": {
         "eddiejibson/testupdate": { //Enter full repo name here ((username or organization)/repo)
             "secret": "test", //Optionally set a secret "key" to make sure 
+	    "gitlab": false, //Is the repo from GitLab?
             //the webhook is indeed from Github and not an attacker
             "path": "/opt/testupdate", //The root path of the repository stored on your local system
             "cmds": [ //Optional. An array of commands you want executed after pull
