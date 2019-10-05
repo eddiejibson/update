@@ -10,21 +10,23 @@ process.send = process.send || function() {};
 app.use(bodyParser.json());
 
 app.post("/", (req, res) => {
+  console.log(req.body, req.get("X-Gitlab-Token") || "none");
   if (!req.body || !req.body.repository || !req.body.repository.full_name) {
     return res.status(422).json({
       error:
         "Ut oh, we haven't been given a valid payload to process this 'commit'."
     });
   } else {
-    let repoName = req.body.repository.full_name;
+    let repoName =
+      req.body.repository.full_name || req.body.project.path_with_namespace;
     let configForRepo = config.repos[repoName];
     if (!configForRepo) {
       return res.status(422).json({
         error:
           "Oh, poo - the user hasn't yet configured this repo in their config.json. Come back later?!"
       });
-    } else {
-      if (configForRepo.secret) {
+    } else if (configForRepo.secret) {
+      if (!configForRepo.gitlab) {
         let sig =
           "sha1=" +
           crypto
@@ -32,6 +34,12 @@ app.post("/", (req, res) => {
             .update(JSON.stringify(req.body))
             .digest("hex");
         if (req.get("X-Hub-Signature") != sig) {
+          return res.status(401).json({
+            error: "Invalid secret."
+          });
+        }
+      } else {
+        if (configForRepo.secret != req.get("X-Gitlab-Token") || null) {
           return res.status(401).json({
             error: "Invalid secret."
           });
