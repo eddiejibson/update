@@ -9,6 +9,7 @@ If this helps you out, please consider giving the repository a star. It makes ou
 You're going to need the `screen` package if you plan to execute background tasks. If not, you'll be fine without it:
 
 Ubuntu/Debain: `sudo apt-get install screen -y`
+
 CentOS: `yum install screen`
 
 Clone the repository:
