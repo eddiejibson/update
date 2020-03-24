@@ -1,8 +1,6 @@
 # Update
 
-Auto-update your GitHub or GitLab repository and execute tasks/commands on push.
-
-If this helps you out, please consider giving the repository a star. It makes our night sky better. Thanks.
+Auto-update (pull) your GitHub or GitLab repository and execute optional tasks/commands on push in the background (building e.t.c).
 
 ## Installation
 
@@ -19,7 +17,7 @@ git clone https://github.com/eddiejibson/update.git
 ```
 
 
-Enter into repository's directory and and install the dependencies:
+Enter into repository's directory and install the dependencies:
 ```bash 
 cd update/ && npm install
 ```
@@ -103,16 +101,9 @@ server {
 
 Step 1:
 
-![Navigate to your repo's settings](https://i.jibson.me/768.png)
+![Navigate to your repo's settings](https://lava.st/qmkm-.png)
+
 
 Step 2:
 
-![Navigate to the "webhook" section](https://i.jibson.me/767.png)
-
-Step 3:
-
-![Click "add webhook"](https://i.jibson.me/288.png)
-
-Step 4:
-
-![Finalize webhook settings](https://i.jibson.me/825.png)
+![Finalize webhook settings](https://lava.st/matxs.png)
