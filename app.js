@@ -67,7 +67,7 @@ app.post("/", (req, res) => {
               let cmd = configForRepo.cmds[i];
               if (typeof cmd === "object") {
                 if (cmd.background) {
-                  cmd = "screen -d -m " + cmd.cmd;
+                  cmd = `screen -d -m ${cmd.cmd}`;
                 }
               }
               exec(
