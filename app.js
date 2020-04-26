@@ -10,7 +10,6 @@ process.send = process.send || function() {};
 app.use(bodyParser.json());
 
 app.post("/", (req, res) => {
-  console.log(req.body, req.get("X-Gitlab-Token") || "none");
   if (
     !req.body ||
     ((!req.body.project || !req.body.project.path_with_namespace) &&
